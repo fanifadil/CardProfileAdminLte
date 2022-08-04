@@ -229,14 +229,13 @@
                   </div>
                   <div class="card-footer">
                     <button type="button" onclick="main()" class="btn btn-primary">Submit</button>
-                    <button type="button" onclick="" class="btn btn-danger">Reset</button>
+                    <button type="button" onclick="Reset()" class="btn btn-danger">Reset</a></button>
                   </div>
-
                 </form>
               </div>
             </div> <!-- /.card-body -->
           </div>
-          <div id="card" class="row mt-5">
+          <div id="container" class="row mt-5">
 
 
           </div>
@@ -313,9 +312,9 @@
       // setRole.innerText = role.value;
       // setSkills.innerText = skills.value;
 
-      let cardInput = document.getElementById("card");
+      let cardInput = document.getElementById("container");
       let input = cardInput.innerHTML +
-        "<div class='col-6'><div class='card-container'>" +
+        "<div class='col-6'><div class='card-container' id='card'>" +
         "<span id='setPerusahaan' class='pro'>" + perusahaan.value + "</span>" +
         // "<img class='round' id='setImg' src='+' style='width: 200px;' alt='user' />" +
         "<h3 id='setNama'>" + nama.value + "</h3>" +
@@ -325,9 +324,14 @@
         "<button class='primary'> Message </button>" +
         "<button class='primary ghost'>CV</button>" +
         "</div>" +
-        "<a id='link' href=''>" + skills.value +
-        "</a><div class='skills'><h6>Skills</h6><ul><li id='setSkills'></li></ul></div></div></div>"
+        "<a id='link' href=''>" +
+        "</a><div class='skills'><h6>Skills</h6><ul><li id='setSkills'>" + skills.value + "</li></ul></div></div></div>"
       cardInput.innerHTML = input;
+    }
+
+    function Reset() {
+      const element = document.getElementById('card');
+      element.remove();
     }
 
   </script>
