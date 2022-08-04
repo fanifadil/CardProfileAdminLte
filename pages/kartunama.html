@@ -34,7 +34,7 @@
         <!-- Navbar Search -->
         <li class="nav-item">
           <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-            <i class="fas fa-search"></i>
+            <i class="fab fa-instagram"></i>
           </a>
           <div class="navbar-search-block">
             <form class="form-inline">
@@ -184,83 +184,62 @@
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
-          <di class="row">
-            <div class="col-6">
+          <div class="row">
+            <div class="col-12">
               <div class="card card-primary">
                 <div class="card-header">
                   <h3 class="card-title">Form Input</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="Nama">Nama</label>
-                    <input class="form-control" id="nama" placeholder="Nama">
-                  </div>
-                  <div class="form-group">
-                    <label for="Alamat">Alamat</label>
-                    <input class="form-control" id="alamat" placeholder="Alamat">
-                  </div>
-                  <div class="form-group">
-                    <label for="Perusahaan">Perusahaan</label>
-                    <input class="form-control" id="perusahaan" placeholder="perusahaan">
-                  </div>
-                  <div class="form-group">
-                    <label for="role">Role</label>
-                    <input class="form-control" id="role" placeholder="role">
-                  </div>
-                  <div class="form-group">
-                    <label for="Alamat">Skills</label>
-                    <input class="form-control" id="skills" placeholder="Skills">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
+                <form>
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="Nama">Nama</label>
+                      <input class="form-control" id="nama" placeholder="Nama">
+                    </div>
+                    <div class="form-group">
+                      <label for="Alamat">Alamat</label>
+                      <input class="form-control" id="alamat" placeholder="Alamat">
+                    </div>
+                    <div class="form-group">
+                      <label for="Perusahaan">Perusahaan</label>
+                      <input class="form-control" id="perusahaan" placeholder="perusahaan">
+                    </div>
+                    <div class="form-group">
+                      <label for="role">Role</label>
+                      <input class="form-control" id="role" placeholder="role">
+                    </div>
+                    <div class="form-group">
+                      <label for="Alamat">Skills</label>
+                      <input class="form-control" id="skills" placeholder="Skills">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputFile">File input</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="input-img">
+                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                          <span class="input-group-text">Upload</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="card-footer">
-                  <button type="submit" onclick="main()" class="btn btn-primary">Submit</button>
-                </div>
+                  <div class="card-footer">
+                    <button type="button" onclick="main()" class="btn btn-primary">Submit</button>
+                    <button type="button" onclick="" class="btn btn-danger">Reset</button>
+                  </div>
 
+                </form>
               </div>
             </div> <!-- /.card-body -->
-
-            <div class="col-6">
-              <div class="card-container">
-                <span id="setPerusahaan" class="pro"></span>
-                <img class="round" id="setImg" src="#" style="width: 200px;" alt="user" />
-                <h3 id="setNama"></h3>
-                <h6 id="setAlamat"></h6>
-                <p id="setRole"></p>
-                <div class="buttons">
-                  <button class="primary">
-                    Message
-                  </button>
-                  <button class="primary ghost">
-                    CV
-                  </button>
-                </div>
-                <a id="link" href="">TES</a>
-                <div class="skills">
-                  <h6>Skills</h6>
-                  <ul>
-                    <li id="setSkills"></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+          </div>
+          <div id="card" class="row mt-5">
 
 
-
+          </div>
         </div>
         <!-- /.container-fluid -->
       </section>
@@ -322,17 +301,33 @@
     var perusahaan = document.getElementById("perusahaan");
     var role = document.getElementById("role");
     var skills = document.getElementById("skills");
-    var img = document.getElementById("inputImg");
-    var url = "www.google.com";
+    var img = document.getElementById("input-img")
+    var freader = new FileReader();
+    freader.readAsDataURL(img.files[0]);
+
 
     function main() {
-      setNama.innerText = nama.value;
-      setAlamat.innerText = alamat.value;
-      setPerusahaan.innerText = perusahaan.value;
-      setRole.innerText = role.value;
-      setSkills.innerText = skills.value;
-      document.getElementById("link").setAttribute("href", url);
-      document.getElementById("setImg").setAttribute("src", url);
+      // setNama.innerText = nama.value;
+      // setAlamat.innerText = alamat.value;
+      // setPerusahaan.innerText = perusahaan.value;
+      // setRole.innerText = role.value;
+      // setSkills.innerText = skills.value;
+
+      let cardInput = document.getElementById("card");
+      let input = cardInput.innerHTML +
+        "<div class='col-6'><div class='card-container'>" +
+        "<span id='setPerusahaan' class='pro'>" + perusahaan.value + "</span>" +
+        // "<img class='round' id='setImg' src='+' style='width: 200px;' alt='user' />" +
+        "<h3 id='setNama'>" + nama.value + "</h3>" +
+        "<h6 id='setAlamat'>" + alamat.value + "</h6>" +
+        "<p id='setRole'>" + role.value + "</p>" +
+        "<div class='buttons'>" +
+        "<button class='primary'> Message </button>" +
+        "<button class='primary ghost'>CV</button>" +
+        "</div>" +
+        "<a id='link' href=''>" + skills.value +
+        "</a><div class='skills'><h6>Skills</h6><ul><li id='setSkills'></li></ul></div></div></div>"
+      cardInput.innerHTML = input;
     }
 
   </script>
